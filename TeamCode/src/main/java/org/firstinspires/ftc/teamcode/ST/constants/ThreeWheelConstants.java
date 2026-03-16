@@ -4,7 +4,7 @@ import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-public class ThreeWheelIMUConstants {
+public class ThreeWheelConstants {
 
     public double forwardTicksToInches;
     public double strafeTicksToInches;
@@ -14,9 +14,9 @@ public class ThreeWheelIMUConstants {
     public double rightPodY;
     public double strafePodX;
 
-    public DcMotorSimple.Direction leftEncoderDirection;
-    public DcMotorSimple.Direction rightEncoderDirection;
-    public DcMotorSimple.Direction strafeEncoderDirection;
+    public DcMotorEx.Direction leftEncoderDirection;
+    public DcMotorEx.Direction rightEncoderDirection;
+    public DcMotorEx.Direction strafeEncoderDirection;
 
     public String leftEncoderName;
     public String rightEncoderName;
@@ -26,73 +26,64 @@ public class ThreeWheelIMUConstants {
 
     public RevHubOrientationOnRobot imuOrientation;
 
-    public ThreeWheelIMUConstants forwardTicksToInches(double v){
+    public ThreeWheelConstants forwardTicksToInches(double v){
         this.forwardTicksToInches = v;
         return this;
     }
 
-    public ThreeWheelIMUConstants strafeTicksToInches(double v){
+    public ThreeWheelConstants strafeTicksToInches(double v){
         this.strafeTicksToInches = v;
         return this;
     }
 
-    public ThreeWheelIMUConstants turnTicksToInches(double v){
+    public ThreeWheelConstants turnTicksToInches(double v){
         this.turnTicksToInches = v;
         return this;
     }
 
-    public ThreeWheelIMUConstants leftPodY(double v){
+    public ThreeWheelConstants leftPodY(double v){
         this.leftPodY = v;
         return this;
     }
 
-    public ThreeWheelIMUConstants rightPodY(double v){
+    public ThreeWheelConstants rightPodY(double v){
         this.rightPodY = v;
         return this;
     }
 
-    public ThreeWheelIMUConstants strafePodX(double v){
+    public ThreeWheelConstants strafePodX(double v){
         this.strafePodX = v;
         return this;
     }
 
-    public ThreeWheelIMUConstants leftEncoderDirection(DcMotorSimple.Direction d){
+    public ThreeWheelConstants leftEncoderDirection(DcMotorSimple.Direction d){
         this.leftEncoderDirection = d;
         return this;
     }
 
-    public ThreeWheelIMUConstants rightEncoderDirection(DcMotorSimple.Direction d){
+    public ThreeWheelConstants rightEncoderDirection(DcMotorSimple.Direction d){
         this.rightEncoderDirection = d;
         return this;
     }
 
-    public ThreeWheelIMUConstants strafeEncoderDirection(DcMotorSimple.Direction d){
+    public ThreeWheelConstants strafeEncoderDirection(DcMotorSimple.Direction d){
         this.strafeEncoderDirection = d;
         return this;
     }
 
-    public ThreeWheelIMUConstants leftEncoderName(String name){
+    public ThreeWheelConstants leftEncoderName(String name){
         this.leftEncoderName = name;
         return this;
     }
 
-    public ThreeWheelIMUConstants rightEncoderName(String name){
+    public ThreeWheelConstants rightEncoderName(String name){
         this.rightEncoderName = name;
         return this;
     }
 
-    public ThreeWheelIMUConstants strafeEncoderName(String name){
+    public ThreeWheelConstants strafeEncoderName(String name){
         this.strafeEncoderName = name;
         return this;
     }
 
-    public ThreeWheelIMUConstants imuName(String name){
-        this.imuName = name;
-        return this;
-    }
-
-    public ThreeWheelIMUConstants imuOrientation(RevHubOrientationOnRobot orientation){
-        this.imuOrientation = orientation;
-        return this;
-    }
 }

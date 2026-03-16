@@ -4,25 +4,27 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.teamcode.Robot.Constants;
+import org.firstinspires.ftc.teamcode.ST.constants.ThreeWheelConstants;
 import org.firstinspires.ftc.teamcode.ST.constants.ThreeWheelIMUConstants;
 import org.firstinspires.ftc.teamcode.ST.localization.EncoderIMUData;
+import org.firstinspires.ftc.teamcode.ST.localization.EncoderTicks;
 import org.firstinspires.ftc.teamcode.ST.localization.Localizer;
 import org.firstinspires.ftc.teamcode.ST.localization.Pose;
+import org.firstinspires.ftc.teamcode.ST.localization.ThreeWheel;
 import org.firstinspires.ftc.teamcode.ST.localization.ThreeWheelIMU;
 
-public class ThreeWheelIMULocalizer implements Localizer {
+public class ThreeWheelLocalizer implements Localizer {
 
     private Pose pose = new Pose();
-    private final ThreeWheelIMU threeWheelIMU;
-    private final ThreeWheelIMUConstants c = Constants.localizerConstants;
+    //private final ThreeWheel threeWheel;
+    //private final ThreeWheelConstants c = Constants.localizerConstants;
     private double lastHeading;
     private double lastTime;
 
     // Velocities
     private double vx = 0, vy = 0, omega = 0;
 
-    public ThreeWheelIMULocalizer(HardwareMap hardwareMap) {
-        threeWheelIMU = new ThreeWheelIMU(hardwareMap);
+    public ThreeWheelLocalizer(HardwareMap hardwareMap, ThreeWheel threeWheel) {
         lastTime = System.nanoTime() / 1e9; // initialize timestamp
     }
 
@@ -41,7 +43,8 @@ public class ThreeWheelIMULocalizer implements Localizer {
 
     @Override
     public void update() {
-        EncoderIMUData ticks = threeWheelIMU.getTicksIMU();
+        /*
+        EncoderTicks ticks = threeWheel.getTicks();
         double heading = ticks.IMUValues.getYaw(AngleUnit.RADIANS);
         double dTheta = heading - lastHeading;
         lastHeading = heading;
@@ -80,6 +83,8 @@ public class ThreeWheelIMULocalizer implements Localizer {
             vy = (dxRobot * Math.sin(pose.heading) + dyRobot * Math.cos(pose.heading)) / dt;
             omega = dTheta / dt;
         }
+        */
+         // TODO: MATH FOR THREE WHEEL LOCALIZER WITHOUT IMU AND CONSTANTS
     }
 
     @Override

@@ -27,6 +27,10 @@ public class ThreeWheelIMU {
         rightEncoder = hardwareMap.get(DcMotorEx.class, c.rightEncoderName);
         strafeEncoder = hardwareMap.get(DcMotorEx.class, c.strafeEncoderName);
 
+        leftEncoder.setDirection(c.leftEncoderDirection);
+        rightEncoder.setDirection(c.rightEncoderDirection);
+        strafeEncoder.setDirection(c.strafeEncoderDirection);
+
         imu = hardwareMap.get(IMU.class, c.imuName);
         imu.initialize(new IMU.Parameters(c.imuOrientation));
 
