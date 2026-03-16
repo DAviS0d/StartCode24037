@@ -6,11 +6,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.ST.follower.Follower;
 import org.firstinspires.ftc.teamcode.ST.localization.Localizer;
 import org.firstinspires.ftc.teamcode.ST.localization.ThreeWheelIMU;
+import org.firstinspires.ftc.teamcode.ST.localization.localizers.ThreeWheelIMULocalizer;
 
 @TeleOp(name = "ManualRobotTeleOp", group = "use")
 public class ManualRobotTeleOp extends OpMode {
-    ThreeWheelIMU threeWheelIMU = new ThreeWheelIMU(hardwareMap);
-    Follower follower = new Follower(hardwareMap, (Localizer) threeWheelIMU);
+    ThreeWheelIMULocalizer threeWheelIMULocalizer = new ThreeWheelIMULocalizer(hardwareMap);
+    Follower follower = new Follower(hardwareMap, threeWheelIMULocalizer);
     private double forward = 0.0, strafe = 0.0, rotation = 0.0;
 
     @Override
@@ -26,5 +27,8 @@ public class ManualRobotTeleOp extends OpMode {
                 rotation,
                 true
         );
+        telemetry.addData("x", threeWheelIMULocalizer.getPose().x);
+        telemetry.addData("y", threeWheelIMULocalizer.getPose().y);
+        telemetry.addData("heading", Math.toDegrees(threeWheelIMULocalizer.getPose().heading));
     }
 }
